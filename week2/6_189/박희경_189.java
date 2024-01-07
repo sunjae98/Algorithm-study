@@ -7,7 +7,7 @@ class Solution {
         reverse(nums, k, nums.length - 1);
     }
 
-    void reverse(int[] nums, int start, int end) { // 메소드 이름을 'reserve'에서 'reverse'로 변경
+    void reverse(int[] nums, int start, int end) {
         while(start < end) {
             int temp = nums[start];
             nums[start++] = nums[end];
