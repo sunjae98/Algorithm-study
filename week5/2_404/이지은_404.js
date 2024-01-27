@@ -5,8 +5,7 @@
  *     this.left = (left===undefined ? null : left)
  *     this.right = (right===undefined ? null : right)
  * }
- */
-
+ */ 
 /**
  * @param {TreeNode} root
  * @return {number}
@@ -25,8 +24,7 @@ var sumOfLeftLeaves = function (root) {
     }
   }
 
-  // 오른쪽 자식에 대해서도 같은 함수를 재귀적으로 호출하지만,
-  // 오른쪽 잎 노드의 값은 합계에 포함하지 않음
+  // 오른쪽 자식에 대해서도 같은 함수를 재귀적으로 호출
   if (root.right) {
     sum += sumOfLeftLeaves(root.right);
   }
