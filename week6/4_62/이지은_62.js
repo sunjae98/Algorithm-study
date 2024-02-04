@@ -1,22 +1,16 @@
-/**
- * @param {string} text1
- * @param {string} text2
- * @return {number}
- */
-var longestCommonSubsequence = function (text1, text2) {
-  let m = text1.length,
-    n = text2.length;
-  let dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+var uniquePaths = function (m, n) {
+  // dp 테이블 초기화
+  const dp = Array(m)
+    .fill()
+    .map(() => Array(n).fill(1));
 
-  for (let i = 1; i <= m; i++) {
-    for (let j = 1; j <= n; j++) {
-      if (text1[i - 1] === text2[j - 1]) {
-        dp[i][j] = dp[i - 1][j - 1] + 1;
-      } else {
-        dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
-      }
+  // 각 셀을 순회하면서 경로의 수를 계산
+  for (let i = 1; i < m; i++) {
+    for (let j = 1; j < n; j++) {
+      dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
     }
   }
 
-  return dp[m][n];
+  // 오른쪽 하단 셀에 도달할 수 있는 경로의 수 반환
+  return dp[m - 1][n - 1];
 };
