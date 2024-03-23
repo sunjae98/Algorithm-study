@@ -4,8 +4,9 @@ var findKthPositive = function (arr, k) {
 
   while (left <= right) {
     const mid = Math.floor((left + right) / 2);
+    const missingCount = arr[mid] - mid - 1;
 
-    if (arr[mid] - mid < k) {
+    if (missingCount < k) {
       left = mid + 1;
     } else {
       right = mid - 1;
