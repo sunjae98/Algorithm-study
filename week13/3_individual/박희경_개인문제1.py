@@ -1,7 +1,7 @@
 N = int(input())
 array = set(map(int, input().split()))
 
-M = input(input())
+M = int(input())
 x = list(map(int, input().split()))
 
 for i in x:
