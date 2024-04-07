@@ -41,11 +41,11 @@ def b_bfs(x, y, color):
     q = deque([(x, y)])
     while q:
         x, y = q.popleft()
-        b_visited[x][y] = True  # 수정됨
+        b_visited[x][y] = True
         for i in range(4):
             nx = x + dx[i]
             ny = y + dy[i]
-            if 0 <= nx < N and 0 <= ny < N and not b_visited[nx][ny]:  # 수정됨
+            if 0 <= nx < N and 0 <= ny < N and not b_visited[nx][ny]:
                 if grid[nx][ny] == color:
                     q.append([nx, ny])
                     b_visited[nx][ny] = True
