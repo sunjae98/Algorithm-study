@@ -1,19 +1,33 @@
-//문자열 연결 연산자
-'1' + 2; // '12'
-1 + '2'; //'12'
+const fs = require('fs');
+const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
 
-//산술 연산자
-1 + 2; // -3
+const N = parseInt(input[0]);
+const edges = input.slice(1).map((line) => line.split(' ').map(Number));
 
-// true는 1로 타입 변환
-1 + true; // 2
+function findParentsDFS(N, edges) {
+  const graph = {};
+  const parents = Array(N + 1).fill(0);
 
-// false는 0으로 타입 변환
-1 + false; // 1
+  edges.forEach(([a, b]) => {
+    if (!graph[a]) graph[a] = [];
+    if (!graph[b]) graph[b] = [];
+    graph[a].push(b);
+    graph[b].push(a);
+  });
 
-// null은 0으로 타입 변환
-1 + null; // 1
+  function dfs(node, parent) {
+    parents[node] = parent;
+    graph[node].forEach((next) => {
+      if (next !== parent) {
+        dfs(next, node);
+      }
+    });
+  }
 
-// undefined는 숫자로 타입 변환되지 않음
-+undefined; // — NaN
-1 + undefined; // — NaN
+  dfs(1, 0);
+
+  return parents.slice(2);
+}
+
+const parents = findParentsDFS(N, edges);
+console.log(parents.join('\n'));
