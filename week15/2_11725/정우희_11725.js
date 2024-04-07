@@ -31,3 +31,5 @@ const solution = (input) => {
   // console.log(check);
   return check.slice(2).join('\n');
 };
+
+console.log(solution(input));
