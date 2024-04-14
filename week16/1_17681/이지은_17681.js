@@ -2,6 +2,10 @@ function solution(n, arr1, arr2) {
   var answer = Array(n);
   let zero = '0';
 
+  // 각 배열의 요소를 n 길이의 이진수 문자열로 변환
+  // let NewArr1 = arr1.map((x) => x.toString(2).padStart(n, '0'));
+  // let NewArr2 = arr2.map((x) => x.toString(2).padStart(n, '0'));
+  
   let NewArr1 = arr1.map((x) => {
     if (x.toString(2).length < n) {
       let k = n - x.toString(2).length;
