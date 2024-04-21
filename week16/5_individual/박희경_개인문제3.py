@@ -15,8 +15,9 @@ for i in range(v):
     graph[a].append(b)
     graph[b].append(a)
 
-visited[1] = 1  # 1번 컴퓨터부터 시작이니 방문 표시
 q = deque([1])
+visited[1] = 1  # 1번 컴퓨터 시작
+
 while q:
     now = q.popleft()
     for n in graph[now]:

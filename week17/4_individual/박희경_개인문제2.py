@@ -24,7 +24,6 @@ visited = [[False] * M for _ in range(N)]
 
 
 def bfs(x, y):
-    cnt = 0
     q = deque([(x, y)])
     visited[x][y] = True
     while q:
