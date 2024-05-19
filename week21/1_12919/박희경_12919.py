@@ -5,22 +5,21 @@ import sys
 
 input = sys.stdin.readline
 
-s = input()
-t = input()
-answer = 0
+s = input().strip()
+t = input().strip()
 
 
-def dfs(str, target):
-    global answer
-    if len(target) == len(str):
-        if target == str:
-            answer = 1
-            return
+def dfs(target):
+    if target == s:
+        print(1)
+        exit()
+    if len(s) > len(target):
+        return
     if target[-1] == 'A':
-        dfs(str, target[:-1])
+        dfs( target[:-1])
     if target[0] == 'B':
-        dfs(str, target[1:][::-1])
+        dfs(target[1:][::-1])
 
 
-dfs(s, t)
-print(answer)
+if dfs(t) is None:
+    print(0)
