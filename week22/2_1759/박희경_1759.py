@@ -23,7 +23,7 @@ for comb in itertools.combinations(arr, l):
     if count_vowels >= 1 and count_consonants >= 2:
         for i in comb:
             combi.append(i)
-    answer.append(combi)
+        answer.append(combi)
 
 for ans in answer:
     ans.sort()
