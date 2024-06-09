@@ -1,7 +1,7 @@
 function solution(numbers) {
   const answer = [];
-  let nums = numbers.split('');
-  console.log(nums);
+  let nums = numbers.split(''); //['1', '7']
+
   // 소수 판별
   const isPrimeNum = (num) => {
     if (num <= 1) return false;
